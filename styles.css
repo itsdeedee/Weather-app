@@ -7,6 +7,7 @@
   padding: 50px 30px 50px 30px;
   position: relative;
   top: 100px;
+  display: block;
 }
 h1 {
   margin-top: 10px;
@@ -33,4 +34,9 @@ a {
 button .btn-outline-dark {
   display: block;
   padding: 20px;
+}
+.link {
+  position: relative;
+  top: 120px;
+  left: 350px;
 }
