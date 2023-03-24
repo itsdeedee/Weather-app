@@ -15,7 +15,7 @@
     <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
   </head>
   <body>
-    <div class="container text-center">
+    <div class="container">
       <form class="search-form" id="search-form">
         <div class="row">
           <div class="col-6">
@@ -44,15 +44,34 @@
           </div>
         </div>
       </form>
+      <h1>Coventry</h1>
+      <div class="row" id="weather-attributes">
+        <div class="col-6">
+          <ul>
+            <li>
+              <span id="time">Thursday 18:38</span>,
+              <span id="description">description</span>
+            </li>
 
-      <h1>Coventry, England</h1>
-      <h4>Thursday 18:38</h4>
-      <h7>
-        <span id="temp">☁️ 4</span>
-        <span class="units"
-          ><a href="#" id="celink">℃</a>|<a href="#" id="felink">℉</a></span
-        >
-      </h7>
+            <li>Humidity: <span id="humidity"> </span>%</li>
+            <li>Wind: <span id="wind"> </span>km/h</li>
+          </ul>
+        </div>
+        <div class="col-6">
+          <div class="d-flex weather-temperature">
+            <img src="" alt="Clear" id="icon" />
+            <div class="float-left">
+              <strong id="temp">4</strong>
+              <span class="units"
+                ><a href="#" id="celink">℃</a>|<a href="#" id="felink"
+                  >℉</a
+                ></span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="dates">
         <div class="row">
           <div class="col-2">
