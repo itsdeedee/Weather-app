@@ -33,6 +33,11 @@ function displayTemperature(response) {
   );
   document.querySelector("#description").innerHTML =
     response.data.condition.description;
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute(
+    "src",
+    `https://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
+  );
 }
 function toSubmit(event) {
   event.preventDefault();
@@ -71,6 +76,11 @@ function DisplayCurrentWeather(response) {
   );
   document.querySelector("#description").innerHTML =
     response.data.condition.description;
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute(
+    "src",
+    `https://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
+  );
 }
 function currentPosition(position) {
   let apiKey = "bdc1aa3oa00cd461t2421e4af03336bc";
