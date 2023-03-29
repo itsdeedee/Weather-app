@@ -1,12 +1,21 @@
 .container {
   border: 1px solid rgb(0, 0, 0);
   border-radius: 20px;
-  box-shadow: 2px 2px 2px 2px rgb(0, 0, 0);
+  box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.5);
   max-width: 600px;
   margin: 0 auto;
   padding: 50px 30px 50px 30px;
   position: relative;
   top: 100px;
+  background: #e4f1fe;
+}
+body {
+  background: linear-gradient(
+    88.7deg,
+    rgb(144, 254, 229) -17.1%,
+    rgb(91, 193, 239) 40.4%,
+    rgb(119, 94, 173) 115.3%
+  );
 }
 h1 {
   color: #272142;
@@ -62,7 +71,7 @@ button .btn-outline-dark {
   left: 350px;
 }
 ul {
-  color: rgba(39, 33, 66, 0.4);
+  color: #0dcaf0;
   font-size: 16px;
   font-weight: 500;
   line-height: 20px;
