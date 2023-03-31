@@ -25,7 +25,8 @@ function displayTemperature(response) {
   let h1 = document.querySelector("h1");
   h1.innerHTML = response.data.city;
   let temperature = document.querySelector("#temp");
-  temperature.innerHTML = Math.round(response.data.temperature.current);
+  celsiusTemperature = response.data.temperature.current;
+  temperature.innerHTML = Math.round(celsiusTemperature);
   document.querySelector("#humidity").innerHTML =
     response.data.temperature.humidity;
   document.querySelector("#wind").innerHTML = Math.round(
@@ -44,23 +45,9 @@ function toSubmit(event) {
   let city = document.querySelector("#city-form-input").value;
   searchCity(city);
 }
+
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", toSubmit);
-
-let Celink = document.querySelector("#celink");
-Celink.addEventListener("click", celciusUnit);
-
-function celciusUnit() {
-  let Temp = document.querySelector("#temp");
-  Temp.innerHTML = "4";
-}
-
-function fahrenhietUnit() {
-  let Temp = document.querySelector("#temp");
-  Temp.innerHTML = "35";
-}
-let Felink = document.querySelector("#felink");
-Felink.addEventListener("click", fahrenhietUnit);
 
 function DisplayCurrentWeather(response) {
   let h1 = document.querySelector("h1");
@@ -94,3 +81,28 @@ let button = document.querySelector("#currentButton");
 button.addEventListener("click", function () {
   navigator.geolocation.getCurrentPosition(currentPosition);
 });
+
+function displayFahrenheitTemperature(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temp");
+
+  Celink.classList.remove("active");
+  Felink.classList.add("active");
+  let fahrenheiTemperature = (celsiusTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(fahrenheiTemperature);
+}
+
+function displayCelsiusTemperature(event) {
+  event.preventDefault();
+  Celink.classList.add("active");
+  Felink.classList.remove("active");
+  let temperatureElement = document.querySelector("#temp");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+
+let celsiusTemperature = null;
+let Felink = document.querySelector("#felink");
+Felink.addEventListener("click", displayFahrenheitTemperature);
+
+let Celink = document.querySelector("#celink");
+Celink.addEventListener("click", displayCelsiusTemperature);
