@@ -2,7 +2,8 @@
   border: 1px solid rgb(0, 0, 0);
   border-radius: 20px;
   box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.5);
-  max-width: 600px;
+  max-width: 700px;
+  max-height: 580px;
   margin: 0 auto;
   padding: 50px 50px 50px 50px;
   position: relative;
@@ -11,8 +12,8 @@
 }
 body {
   background-image: url(v1015-104a.jpg);
-  background-repeat: no-repeat;
   background-size: 100%;
+  background-color: #9cdef5;
 }
 
 h1 {
@@ -32,8 +33,9 @@ h1 {
   position: relative;
   left: 50px;
 }
-.weather-forcast .row {
-  margin-top: 70px;
+#forecast {
+  margin-left: -58px;
+  margin-top: 60px;
 }
 .weather-temperature img {
   margin-right: 5px;
