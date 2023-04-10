@@ -1,20 +1,26 @@
-let currentDate = new Date();
+function formatDate(timestamp) {
+  let date = new Date(timestamp);
+  let hours = date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
 
-let days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
-let day = days[currentDate.getDay()];
-let hour = currentDate.getHours();
-let min = currentDate.getMinutes();
-
-let h4 = document.querySelector("#time");
-h4.innerHTML = `${day} ${hour}:${min}`;
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[date.getDay()];
+  return `${day} ${hours}:${minutes}`;
+}
 
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
@@ -117,6 +123,7 @@ function DisplayCurrentWeather(response) {
     "src",
     `https://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
   );
+  getForecast(response.data.coordinates);
 }
 function currentPosition(position) {
   let apiKey = "bdc1aa3oa00cd461t2421e4af03336bc";
@@ -130,28 +137,3 @@ let button = document.querySelector("#currentButton");
 button.addEventListener("click", function () {
   navigator.geolocation.getCurrentPosition(currentPosition);
 });
-
-function displayFahrenheitTemperature(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#temp");
-
-  Celink.classList.remove("active");
-  Felink.classList.add("active");
-  let fahrenheiTemperature = (celsiusTemperature * 9) / 5 + 32;
-  temperatureElement.innerHTML = Math.round(fahrenheiTemperature);
-}
-
-function displayCelsiusTemperature(event) {
-  event.preventDefault();
-  Celink.classList.add("active");
-  Felink.classList.remove("active");
-  let temperatureElement = document.querySelector("#temp");
-  temperatureElement.innerHTML = Math.round(celsiusTemperature);
-}
-
-let celsiusTemperature = null;
-let Felink = document.querySelector("#felink");
-Felink.addEventListener("click", displayFahrenheitTemperature);
-
-let Celink = document.querySelector("#celink");
-Celink.addEventListener("click", displayCelsiusTemperature);
