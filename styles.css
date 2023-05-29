@@ -12,8 +12,10 @@
 }
 body {
   background-image: url(v1015-104a.jpg);
-  background-size: 100%;
-  background-color: #9cdef5;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 h1 {
